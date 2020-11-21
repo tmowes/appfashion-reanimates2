@@ -1,0 +1,12 @@
+eslint
+prettier
+
+main dependencies
+
+styled-components
+react-native-vector-icons
+react-native-svg
+
+reanimated 2
+redash
+
