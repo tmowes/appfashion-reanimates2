@@ -32,6 +32,7 @@
     "no-unused-expressions": "off",
     "global-require": "off",
     "no-console": "off",
+    "no-alert": "off",
     "prettier/prettier": "error",
     "jsx-a11y/anchor-is-valid": "off",
     "react-hooks/rules-of-hooks": "error",

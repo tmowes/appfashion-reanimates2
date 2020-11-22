@@ -16,7 +16,10 @@ const height = 640 * aspectRatio
 const minHeight = 200 * aspectRatio
 const snapPoints = [-(height - minHeight), 0]
 
-const CartContainer = ({ children }: CartContainerProps) => {
+const CartContainer: React.FC<CartContainerProps> = ({
+  children,
+  CheckoutComponent,
+}) => {
   const translateY = useSharedValue(0)
   const onGestureEvent = useAnimatedGestureHandler({
     onStart: (_, ctx: { y: number }) => {
@@ -39,7 +42,8 @@ const CartContainer = ({ children }: CartContainerProps) => {
   }))
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#0c0d34' }}>
+    <View style={{ flex: 1 }}>
+      <CheckoutComponent minHeight={minHeight} />
       <PanGestureHandler onGestureEvent={onGestureEvent}>
         <Animated.View
           style={[

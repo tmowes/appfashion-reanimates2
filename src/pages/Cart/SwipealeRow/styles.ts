@@ -15,7 +15,7 @@ export const DeleteContainer = styled(LinearGradient).attrs({
   bottom: 0;
 `
 export const DeleteContent = styled(LinearGradient).attrs({
-  colors: ['transparent', 'red', 'transparent'],
+  colors: ['white', 'red', 'white'],
 })`
   position: absolute;
   top: 0;
@@ -31,7 +31,7 @@ export const DeleteText = styled.Text`
 `
 
 export const EditContainer = styled(LinearGradient).attrs({
-  colors: ['#0c0d34', 'transparent', 'transparent'],
+  colors: ['#2cb9b080', 'transparent', 'transparent'],
   start: { x: 0.25, y: 1 },
   end: { x: 1, y: 1 },
 })`
@@ -42,11 +42,17 @@ export const EditContainer = styled(LinearGradient).attrs({
   bottom: 0;
 `
 export const EditContent = styled(LinearGradient).attrs({
-  colors: ['transparent', '#0c0d34', 'transparent'],
+  colors: ['transparent', '#2cb9b080', 'transparent'],
 })`
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+`
+export const EditButtonsContainer = styled.View`
+  flex: 1;
+  align-self: flex-end;
+  justify-content: space-evenly;
+  align-items: center;
 `

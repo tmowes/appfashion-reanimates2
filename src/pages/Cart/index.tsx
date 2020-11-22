@@ -7,6 +7,7 @@ import * as C from '../../components'
 
 import CartContainer from './CartContainer'
 import CartItem from './CartItem'
+import Checkout from './Checkout'
 
 const { width } = Dimensions.get('window')
 const aspectRatio = width / 375
@@ -14,19 +15,19 @@ const height = 100 * aspectRatio
 const d = 'M 0 0 A 50 50 0 0 0 50 50 H 325 A 50 50 0 0 1 375 100 V 0 Z'
 
 const initialItems = [
-  { id: 1 },
-  { id: 2 },
-  { id: 3 },
-  { id: 4 },
-  { id: 5 },
-  { id: 6 },
+  { id: 1, quantity: 3 },
+  { id: 2, quantity: 1 },
+  { id: 3, quantity: 3 },
+  { id: 4, quantity: 2 },
+  { id: 5, quantity: 3 },
+  { id: 6, quantity: 9 },
 ]
 
 const Cart: React.FC = () => {
   const [items, setItems] = useState(initialItems)
 
   return (
-    <CartContainer>
+    <CartContainer CheckoutComponent={Checkout}>
       <View>
         <View style={{ backgroundColor: '#2cb9b0', zIndex: 10 }}>
           <C.Header
@@ -42,10 +43,11 @@ const Cart: React.FC = () => {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingVertical: height / 2 }}
         >
-          {items.map(({ id }, index) => (
+          {items.map(({ id, quantity }, index) => (
             <CartItem
               key={id + index}
               onDelete={() => setItems(items.filter(item => item.id !== id))}
+              quantity={quantity}
             />
           ))}
         </ScrollView>

@@ -7,8 +7,10 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withSpring,
+  withTiming,
 } from 'react-native-reanimated'
-import { clamp, snapPoint } from 'react-native-redash'
+import { snapPoint } from 'react-native-redash'
+import * as C from '../../../components'
 
 import * as S from './styles'
 import { SwipealeRowProps } from './types'
@@ -16,9 +18,15 @@ import { SwipealeRowProps } from './types'
 const { width } = Dimensions.get('window')
 const aspectRatio = width / 375
 const finalDest = width
-const snapPoints = [-80 * aspectRatio, 0, finalDest]
+const editWidth = 80 * aspectRatio
+const snapPoints = [-editWidth, 0, finalDest]
 
-const SwipealeRow: React.FC<SwipealeRowProps> = ({ children, onDelete }) => {
+const SwipealeRow: React.FC<SwipealeRowProps> = ({
+  children,
+  onDelete,
+  height: defaultHeight,
+}) => {
+  const rowHeight = useSharedValue(defaultHeight)
   const translateX = useSharedValue(0)
   const onGestureEvent = useAnimatedGestureHandler({
     onStart: (_, ctx: { x: number }) => {
@@ -33,12 +41,15 @@ const SwipealeRow: React.FC<SwipealeRowProps> = ({ children, onDelete }) => {
         'worklet'
 
         if (dest === finalDest) {
-          runOnJS(onDelete)()
+          rowHeight.value = withTiming(0, { duration: 250 }, () =>
+            runOnJS(onDelete)(),
+          )
         }
       })
     },
   })
   const style = useAnimatedStyle(() => ({
+    height: rowHeight.value,
     backgroundColor: 'white',
     transform: [{ translateX: translateX.value }],
   }))
@@ -60,6 +71,22 @@ const SwipealeRow: React.FC<SwipealeRowProps> = ({ children, onDelete }) => {
       <Animated.View style={[StyleSheet.absoluteFill, editStyle]}>
         <S.EditContent />
         <S.EditContainer />
+        <S.EditButtonsContainer style={{ width: editWidth }}>
+          <C.RoundedIconButton
+            onPress={() => alert('plus')}
+            name="plus"
+            size={28}
+            color="white"
+            backgroundColor="#2cb9b0"
+          />
+          <C.RoundedIconButton
+            onPress={() => alert('minus')}
+            name="minus"
+            size={28}
+            color="white"
+            backgroundColor="#2cb9b0"
+          />
+        </S.EditButtonsContainer>
       </Animated.View>
       <PanGestureHandler onGestureEvent={onGestureEvent}>
         <Animated.View style={style}>{children}</Animated.View>
