@@ -6,6 +6,7 @@
 [x] react-native-vector-icons
 [x] react-native-svg
 [x] react-native-gesture-handler
+[x] react-native-linear-gradient
 [ ]
 [x] core dependencies
 [x] react-native-reanimated@^2.0.0-alpha.9
