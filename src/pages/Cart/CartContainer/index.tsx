@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dimensions, View, Text } from 'react-native'
+import { Dimensions, View } from 'react-native'
 import { PanGestureHandler } from 'react-native-gesture-handler'
 import Animated, {
   useAnimatedGestureHandler,
@@ -11,8 +11,9 @@ import { clamp, snapPoint } from 'react-native-redash'
 import { CartContainerProps } from './types'
 
 const { width } = Dimensions.get('window')
-const height = (640 * width) / 375
-const minHeight = (200 * width) / 375
+const aspectRatio = width / 375
+const height = 640 * aspectRatio
+const minHeight = 200 * aspectRatio
 const snapPoints = [-(height - minHeight), 0]
 
 const CartContainer = ({ children }: CartContainerProps) => {
@@ -51,11 +52,35 @@ const CartContainer = ({ children }: CartContainerProps) => {
               backgroundColor: 'white',
               borderBottomLeftRadius: 48,
               borderBottomRightRadius: 48,
+              overflow: 'hidden',
             },
             style,
           ]}
         >
           {children}
+          <View
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              right: 0,
+              height: 48 * aspectRatio,
+              backgroundColor: 'transparent',
+              justifyContent: 'flex-end',
+              alignItems: 'center',
+            }}
+          >
+            <View
+              style={{
+                height: 6 * aspectRatio,
+                width: 60 * aspectRatio,
+                backgroundColor: 'black',
+                borderRadius: 3 * aspectRatio,
+                opacity: 0.3,
+                marginBottom: 12 * aspectRatio,
+              }}
+            />
+          </View>
         </Animated.View>
       </PanGestureHandler>
     </View>

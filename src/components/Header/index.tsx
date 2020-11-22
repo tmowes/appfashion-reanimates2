@@ -12,6 +12,7 @@ const Header: React.FC<HeaderProps> = ({ left, title, right, color }) => {
         alignItems: 'center',
         justifyContent: 'space-between',
         paddingTop: 24,
+        paddingBottom: 6,
         paddingHorizontal: 16,
       }}
     >

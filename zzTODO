@@ -1,12 +1,16 @@
-eslint
-prettier
+[x] eslint
+[x] prettier
+[ ]
+[x] main dependencies
+[x] styled-components
+[x] react-native-vector-icons
+[x] react-native-svg
+[x] react-native-gesture-handler
+[ ]
+[x] core dependencies
+[x] react-native-reanimated@^2.0.0-alpha.9
+[x] react-native-redash@^15.11.1
 
-main dependencies
 
-styled-components
-react-native-vector-icons
-react-native-svg
-
-reanimated 2
-redash
-
+https://www.youtube.com/watch?v=i3sf1yF5N1o&ab_channel=WilliamCandillon
+[37:00] timetracker

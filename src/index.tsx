@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { View } from 'react-native'
+import { StatusBar, View } from 'react-native'
 import * as P from './pages'
 
 const AnimatedStyleUpdateExample: React.FC = () => {
@@ -11,6 +11,11 @@ const AnimatedStyleUpdateExample: React.FC = () => {
         backgroundColor: '#0c0d34',
       }}
     >
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+      />
       <P.Cart />
     </View>
   )
