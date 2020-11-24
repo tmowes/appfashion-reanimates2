@@ -1,24 +1,27 @@
 import React from 'react'
-
+import { NavigationContainer } from '@react-navigation/native'
 import { StatusBar, View } from 'react-native'
-import * as P from './pages'
 
-const AnimatedStyleUpdateExample: React.FC = () => {
+import Routes from './routes'
+
+const App: React.FC = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: '#0c0d34',
-      }}
-    >
+    <NavigationContainer>
       <StatusBar
-        barStyle="light-content"
+        barStyle="dark-content"
         backgroundColor="transparent"
         translucent
       />
-      <P.Cart />
-    </View>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: '#0c0d34',
+        }}
+      >
+        <Routes />
+      </View>
+    </NavigationContainer>
   )
 }
 
-export default AnimatedStyleUpdateExample
+export default App
