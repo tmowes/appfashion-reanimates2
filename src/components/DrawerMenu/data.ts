@@ -30,6 +30,12 @@ export const menuItems = [
   //   color: '#442cb9',
   // },
   {
+    icon: 'coffee',
+    label: 'PhilzCoffee',
+    screen: 'PhilzCoffee',
+    color: '#6A2B05',
+  },
+  {
     icon: 'chrome',
     label: 'ChromeTab',
     screen: 'ChromeTab',

@@ -10,6 +10,7 @@ const { Navigator, Screen } = createDrawerNavigator()
 const Routes: React.FC = () => {
   return (
     <Navigator drawerContent={() => <DrawerMenu />}>
+      <Screen name="PhilzCoffee" component={P.PhilzCoffee} />
       <Screen name="ChromeTab" component={P.ChromeTab} />
       <Screen name="Cart" component={P.Cart} />
     </Navigator>
