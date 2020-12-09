@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Dimensions, ScrollView, View } from 'react-native'
+import { Dimensions, ScrollView } from 'react-native'
 import Animated, {
   useAnimatedScrollHandler,
   useAnimatedStyle,

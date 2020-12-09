@@ -1,0 +1,73 @@
+retorne o total (R$) de vendas
+II- SELECT sum(p.preco) FROM produto p  // soma os preços retornados no filtro da tabela produto
+I-    INNER JOIN produto_estoque e      // filtra os que forem iguais produto_estoque
+III-    ON e.id_produto=p.id_produto    // comparador produto_id = estoque_id
+V-    INNER JOIN item_venda iv          // filtra os que forem iguais item_venda
+IV-     ON iv.id_estoque=e.id_estoque   // comparador venda_id = estoque_id
+
+
+retorne os produtos que estão em estoque mas nunca foram vendidos.
+VI- SELECT p.descricao FROM produto p   /// retorna descrição do produtos no filtro da tabela produto
+III-  INNER JOIN produto_estoque e      /// filtra os que forem iguais produto_estoque
+II-     ON e.id_produto=p.id_produto    /// comparador produto_id = estoque_id
+IV-   LEFT JOIN item_venda iv           /// filtra os que estão antes item_venda
+V-      ON iv.id_estoque=e.id_estoque   /// comparador venda_id = estoque_id
+I-    WHERE e.id_estoque is null        /// onde id_estoque
+
+
+retorne o nome dos produtos que já foram vendidos
+IV- SELECT p.descricao FROM produto p   /// retorna descrição do produtos no filtro da tabela produto
+V-    INNER JOIN produto_estoque e      /// filtra os que forem iguais produto_estoque
+I-      ON e.id_produto= p.id_produto   /// comparador produto_id = estoque_id
+II-   INNER JOIN item_venda iv          /// filtra os que forem iguais item_venda
+III-    ON iv.id_estoque=e.id_estoque   /// comparador venda_id = estoque_id
+
+
+retorne todas as vendas e o nome do cliente
+V-  SELECT v.data,p.nome FROM venda v   /// retorna todas vendas com nome do cliente no filtro da tabela vendas
+I-    INNER JOIN cliente c              /// filtra os que forem iguais cliente
+II-     ON v.id_cliente = c.id_cliente  /// comparador venda_id = cliente_id
+III-  INNER JOIN pessoa p               /// filtra os que forem iguais pessoa
+IV-     ON p.id_pessoa=c.id_cliente     /// comparador pessoa_id = cliente_id
+
+
+retorne os produtos que estão em estoque mas nunca foram vendidos.
+VI- SELECT p.descricao FROM produto p
+III- INNER JOIN produto_estoque e
+II- ON e.id_produto=p.id_produto
+IV- LEFT JOIN item_venda iv
+V- ON iv.id_estoque=e.id_estoque
+I- WHERE e.id_estoque is null
+
+
+I- Inserção.
+II- Atualização.
+III- Remoção.
+IV- Busca.
+( IV) Select * from produto.
+(III) Delete from produto.
+( II) Update produto set nome ="Mouse".
+(  I) Insert into produto values (1, "TV").
+
+
+
+I- ROLAP.
+II- MOLAP.
+III- DOLAP.
+IV- HOLAP.
+
+( III) É o servidor que utiliza recursos da máquina local.
+(   I) É o servidor que é implementado utilizando SGBD relacional.
+(  II) É o servidor que é implementado de maneira multidimensional.
+(  IV) É o servidor que é híbrido entre relacional e multidimensional
+
+
+I- Slice.
+II- Dice.
+III- Drill Down.
+IV- Roll up.
+
+( IV-) Realiza a agregação dos dados.
+(III-) Realiza a desagregação dos dados.
+(  I-) Realiza o fatiamento de uma única dimensão.
+( II-) Realiza slices consecutivos.

@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native'
 import React, { useState } from 'react'
 import { Dimensions, View, Text, StyleSheet } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
@@ -24,6 +25,7 @@ const initialItems = [
 ]
 
 const Cart: React.FC = () => {
+  const { navigate } = useNavigation()
   const [items, setItems] = useState(initialItems)
 
   return (
@@ -34,7 +36,7 @@ const Cart: React.FC = () => {
             title="Shopping Cart"
             color="white"
             left={{ icon: 'arrow-left', onPress: () => true }}
-            right={{ icon: 'bell', onPress: () => true }}
+            right={{ icon: 'bell', onPress: () => navigate('OnBoarding') }}
           />
         </View>
       </View>

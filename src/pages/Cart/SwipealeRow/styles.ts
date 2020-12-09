@@ -55,4 +55,5 @@ export const EditButtonsContainer = styled.View`
   align-self: flex-end;
   justify-content: space-evenly;
   align-items: center;
+  overflow: hidden;
 `

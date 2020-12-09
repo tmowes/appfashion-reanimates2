@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dimensions, StyleSheet } from 'react-native'
+import { Dimensions } from 'react-native'
 import { interpolate, useAnimatedStyle } from 'react-native-reanimated'
 
 import * as S from './styles'
